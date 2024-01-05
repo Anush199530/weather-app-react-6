@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Weather from "./Weather";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container">
+      <div className="container">
+        <Weather defaultCity="Brussel"/>
+        <footer>
+          This probject is coded by Anush Arutunian and is{" "}
+          <a
+            href="https://github.com/Anush199530/weather-app-react"
+            target="_blank"
+            
+          >
+            open-sourced on Github
+          </a>
+        </footer>
+      </div>
     </div>
   );
-}
-
-export default App;
