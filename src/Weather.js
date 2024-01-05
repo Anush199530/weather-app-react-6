@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Weather.css";
-import axios from "axios";
+import axions from "axios";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
 
@@ -17,15 +17,14 @@ export default function Weather(props) {
       wind: response.data.wind.speed,
       description: response.data.condition.description,
       icon: response.data.condition.icon,
-      iconUrl: http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png,
+      iconUrl: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
       city: response.data.city,
     });
   }
 
   function search() {
     let apiKey = "0t30d9c2bfb348e86oa6585b9339d079";
-
-    let apiUrl = https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey};
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
   }
 
