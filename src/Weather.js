@@ -1,33 +1,30 @@
 import React, { useState } from "react";
 import "./Weather.css";
-import axions from "axios";
+import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
-
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
       ready: true,
+      coordinates: response.data.coordinates,
       temperature: response.data.temperature.current,
       humidity: response.data.temperature.humidity,
       date: new Date(response.data.time * 1000),
       wind: response.data.wind.speed,
       description: response.data.condition.description,
       icon: response.data.condition.icon,
-      iconUrl: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
+      iconUrl:` http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
       city: response.data.city,
     });
   }
-
   function search() {
     let apiKey = "0t30d9c2bfb348e86oa6585b9339d079";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
   }
-
   function handleSubmit(event) {
     event.preventDefault();
     search(city);
@@ -35,7 +32,6 @@ export default function Weather(props) {
   function handleCityChange(event) {
     setCity(event.target.value);
   }
-
   if (weatherData.ready) {
     return (
       <div className="Weather">
@@ -60,7 +56,10 @@ export default function Weather(props) {
           </div>
         </form>
         <WeatherInfo data={weatherData} />
-        <WeatherForecast code="rain-day" />
+        <WeatherForecast
+          coordinates={weatherData.coordinates}
+          iconUrl={weatherData.iconUrl}
+        />
       </div>
     );
   } else {
