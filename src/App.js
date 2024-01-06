@@ -10,7 +10,7 @@ export default function App() {
         <footer>
           This probject is coded by Anush Arutunian and is{" "}
           <a
-            href="https://github.com/Anush199530/weather-app-react"
+            href="https://github.com/Anush199530/weather-app-react-6"
             target="_blank"
             
           >
