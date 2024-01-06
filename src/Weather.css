@@ -6,14 +6,16 @@ body {
     background-attachment: fixed;
   }
   
-  .Weather {
+ .Weather {
     color: rgb(93, 97, 103);
     padding: 16px;
     margin: 30px auto;
-    max-width: 600px;
+    max-width: 700px;
     border-radius: 10px;
     background-color: color-mix(in srgb, white 40%, rgb(72, 136, 219) 20%);
   }
+
+
   .Weather h1 {
     font-size: 38px;
     font-weight: 100;
