@@ -16,6 +16,13 @@ export default function App() {
             
           >
             open-sourced on Github
+          </a> and hosted on <a
+            href="https://weather-app-react-6.vercel.app/?fbclid=IwAR0hCC2mlYwvFFLq0UPxwyohCTTwyBnCBl7-DmaxETBJApNSGjkLblAXOdI"
+            target="_blank"
+            rel="noreferrer"
+            
+          >
+            Vercel
           </a>
         </footer>
       </div>
